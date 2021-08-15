@@ -9,11 +9,14 @@ notesRouter.get('/', (req, res) =>
 
 // POST Route for submitting notes
 notesRouter.post('/', (req, res) => {
-    // Destructuring assignment for the items in req.body
+    // Destructuring 
+
     const { title, text } = req.body;
   
     // If all the required properties are present
+
     if (title && text) {
+
       // Variable for the object we will save
       const newNote = {
         title,
@@ -21,7 +24,7 @@ notesRouter.post('/', (req, res) => {
         id: uuid(),
       };
   
-      readAndAppend('./db/db.json', newNote);
+      readAndAppend(newNote, './db/db.json');
   
       const response = {
         status: 'success',
@@ -29,7 +32,9 @@ notesRouter.post('/', (req, res) => {
       };
   
       res.json(response);
+
     } else {
+
       res.json('Error in posting Note');
     }
 });
@@ -38,10 +43,10 @@ notesRouter.post('/', (req, res) => {
  notesRouter.delete('/:id', (req, res) => {
  
     // Check for query parameters
-    const QueryParams = Object.keys(req.params).length > 0;
+    const queryParams = Object.keys(req.params).length > 0;
 
     
-    if(QueryParams){
+    if(queryParams){
         let id = req.params.id;
         deleteFromFile(id);
         const response = {
