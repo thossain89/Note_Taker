@@ -1,15 +1,15 @@
 const fs = require('fs');
-const util = require('util');
-const path = require ('path');
+const utils = require('util');
+
 
 // Promise version of fs.readFile
-const readFromFile = util.promisify(fs.readFile);
+const readFromFile = utils.promisify(fs.readFile);
 
 /**
  *  Function to write data to the JSON file given a destination and some content
- *  @param {string} path The file you want to write to.
- *  @param {jsonobject} content The content you want to write to the file.
- *  @returns {void} Nothing
+ *  @param {string} path The file we want to write to.
+ *  @param {object} content The content we want to write to the file.
+ *  
  */
 
  const writeToFile = (path, content) =>
@@ -19,9 +19,9 @@ const readFromFile = util.promisify(fs.readFile);
 
  /**
  *  Function to read data from a given a file and append some content
- *  @param {jsonobject} content The content you want to append to the file.
+ *  @param {object} content The content you want to append to the file.
  *  @param {string} path The path to the file you want to save to.
- *  @returns {void} Nothing
+ * 
  */
 
   const readAndAppend = (path, content) => {
@@ -31,7 +31,7 @@ const readFromFile = util.promisify(fs.readFile);
       } else {
         const parsedData = JSON.parse(data);
         parsedData.push(content);
-        writeToFile(file, parsedData);
+        writeToFile(path, parsedData);
       }
     });
   };
