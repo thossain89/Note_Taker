@@ -21,8 +21,8 @@
 
 ## Installation  
 
-#### The app is uploaded in Heroku and can be used via the link below.
-## CLICK HERE
+### The app is deployed in `Heroku` and can be used via the link below.
+#### [Note Taker APP Click Here !!!](https://enigmatic-badlands-88370.herokuapp.com/)
 #### To run this code repo in your PC, user must install Node.js first  
 #### User also need the following dependencies
 
@@ -46,9 +46,9 @@ Its a simple app. Enter a subject at the title header and your preferred text in
 ```
 
 
-## Demo of the Note Taker :
+## Demo of Note Taker :
 
-![exampleTeamProfile](./assets/webpage.png)  
+![DEMO NOTE TAKER](./assets/demo.gif)  
 
 
 
