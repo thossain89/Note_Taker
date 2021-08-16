@@ -49,7 +49,7 @@ const readFromFile = util.promisify(fs.readFile);
         readFromFile('./db/db.json', 'utf-8')
         .then((stringData) => {
             const parsedData =JSON.parse(stringData);
-            let output = parsedData.filter((note) => note.id !== id);
+            let output = parsedData.filter((notes) => notes.id !== id);
             writeToFile('./db/db.json', output);
         }).catch((err) => {
             console.error(err);
