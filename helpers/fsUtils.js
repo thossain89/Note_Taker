@@ -46,11 +46,11 @@ const readFromFile = util.promisify(fs.readFile);
   const deleteFromFile = (id) => {
 
         
-        readFromFile('../db/db.json', 'utf-8')
+        readFromFile('./db/db.json', 'utf-8')
         .then((stringData) => {
             const parsedData =JSON.parse(stringData);
             let output = parsedData.filter((note) => note.id !== id);
-            writeToFile('../db/db.json', output);
+            writeToFile('./db/db.json', output);
         }).catch((err) => {
             console.error(err);
         });    
