@@ -1,11 +1,11 @@
 const fs = require('fs');
-const utils = require('util');
+const util = require('util');
 
 
 // Promise version of fs.readFile
-const readFromFile = utils.promisify(fs.readFile);
+const readFromFile = util.promisify(fs.readFile);
 
-console.log (readFromFile);
+
 
 /**
  *  Function to write data to the JSON file given a destination and some content
@@ -45,12 +45,12 @@ console.log (readFromFile);
 
   const deleteFromFile = (id) => {
 
-        let dbFilePath = './db/db.json';
-        readFromFile(dbFilePath, 'utf-8')
+        
+        readFromFile('./db/db.json', 'utf-8')
         .then((stringData) => {
             const parsedData =JSON.parse(stringData);
             let output = parsedData.filter((note) => note.id !== id);
-            writeToFile(dbFilePath, output);
+            writeToFile('./db/db.json', output);
         }).catch((err) => {
             console.error(err);
         });    
